@@ -1,33 +1,44 @@
-# black-hole.js #
+# Projeto Buraco Negro Interativo 🌌
 
-[Demo and explanatory blog post](https://cliffcrosland.com/posts/black-hole-js/).
+Este é um projeto web desenvolvido para simular um efeito de lente gravitacional, semelhante a um buraco negro, aplicado sobre uma imagem de fundo. A simulação é renderizada em tela cheia e se adapta dinamicamente ao tamanho da janela do navegador, criando uma experiência visual imersiva.
 
-![milky-way-with-black-hole](https://s3-us-west-1.amazonaws.com/cliffcrosland-public/black_hole_js/milky_way_with_black_hole.png)
+## 📸 Demonstração
 
-In the time-honored tradition of taking yet another noun and making .js file out of it, I proudly present black-hole.js, which uses a numerical ordinary differential equation solver from numeric.js, and some nice WebGL utilities from glfx.js, to render the gravitational lensing of a black hole.
+![Demonstração do Efeito Buraco Negro](https://i.imgur.com/nL2tU62.jpeg)
 
-Note: due to HTML5's security restrictions, you must either render images from your own domain or from a server where CORS is ok.
+*(Dica: Você pode substituir o link acima pelo link da imagem que você me enviou. Para isso, basta arrastar sua imagem para a caixa de comentários de uma issue ou pull request no GitHub e copiar o link que ele gerar!)*
 
-Usage:
-```html
-<div id="canvas_placeholder"></div>
-<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.js"></script>
-<script src="./black-hole.min.js"></script>
-<script>
-  var corsOkImageUrl = 'https://s3-us-west-1.amazonaws.com/cliffcrosland-public/black_hole_js/milky_way.jpg';
-  BlackHole.blackHoleifyImage('canvas_placeholder', corsOkImageUrl)
-</script>
-```
+## ✨ Funcionalidades
 
-You can also specify some parameters to change the gravitational lensing effect:
-```html
-<script>
-  BlackHole.blackHoleifyImage(placeholderId, corsOkImageUrl, {
-    distanceFromBlackHole: 70, // 80 is default
-    polynomialDegree: 3, // 2 is default
-    numAngleTableEntries: 2000, // 1000 is default. More might improve quality but impact performance
-    fovAngleInDegrees: 60, // 73 is default. Yeah, it's an unusual choice, but it just looked cool, ok?
-  });
-</script>
-```
+* Efeito de distorção em tempo real, simulando um campo gravitacional.
+* Renderização em tela cheia (*fullscreen*).
+* Design responsivo que se ajusta automaticamente ao redimensionamento da janela.
+* Imagem de fundo facilmente personalizável no código.
+
+## 🛠️ Tecnologias Utilizadas
+
+O projeto foi construído utilizando as seguintes tecnologias:
+
+* **HTML5**
+* **CSS3**
+* **JavaScript**
+* **WebGL** (através da biblioteca `black-hole.js`)
+* **jQuery** (para manipulação do DOM e eventos)
+* **Numeric.js** (para cálculos matemáticos)
+
+## 🚀 Como Executar o Projeto
+
+Para rodar este projeto localmente, siga os passos abaixo:
+
+1.  Faça o clone ou o download deste repositório.
+    ```bash
+    git clone [https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git](https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git)
+    ```
+2.  Abra a pasta do projeto no **Visual Studio Code**.
+3.  Se ainda não tiver, instale a extensão **[Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)**.
+4.  Clique com o botão direito no arquivo `index.html` e selecione a opção **"Open with Live Server"**.
+5.  Pronto! O projeto será aberto no seu navegador padrão.
+
+## 🤝 Agradecimentos
+
+* O efeito principal foi implementado com base na biblioteca `black-hole.js`.
