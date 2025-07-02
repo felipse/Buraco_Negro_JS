@@ -4,7 +4,8 @@ Este é um projeto web desenvolvido para simular um efeito de lente gravitaciona
 
 ## 📸 Demonstração
 
-![Demonstração do Efeito Buraco Negro](![Image](https://github.com/user-attachments/assets/eeaa8572-0588-4b27-9e40-19d170ca54b9))
+![Demonstração do Efeito Buraco Negro]
+![Image](https://github.com/user-attachments/assets/eeaa8572-0588-4b27-9e40-19d170ca54b9)
 
 
 ## ✨ Funcionalidades
@@ -31,7 +32,7 @@ Para rodar este projeto localmente, siga os passos abaixo:
 
 1.  Faça o clone ou o download deste repositório.
     ```bash
-    git clone (https://github.com/felipse/Buraco_Negro_JS)
+    https://github.com/felipse/Buraco_Negro_JS
     ```
 2.  Abra a pasta do projeto no **Visual Studio Code**.
 3.  Se ainda não tiver, instale a extensão **[Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)**.
