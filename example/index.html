@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Effect - Fullscreen</title>
+  <style>
+    /* Passo 1: Preparar o ambiente
+      Garante que a página não tenha margens ou barras de rolagem
+      e que o fundo seja preto.
+    */
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden; /* Esconde barras de rolagem */
+      background-color: #000;
+    }
+
+    /* Passo 2: Estilizar o Canvas
+      Faz o canvas ocupar toda a área visível da janela (viewport).
+    */
+    #blackhole-canvas {
+      width: 100vw;  /* 100% da largura da viewport */
+      height: 100vh; /* 100% da altura da viewport */
+      display: block;  /* Remove pequenos espaços que podem surgir */
+    }
+  </style>
+</head>
+<body>
+  <canvas id="blackhole-canvas"></canvas>
+
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.js"></script>
+  <script src="./js/black-hole.min.js"></script>
+  <script>
+    // Seleciona o elemento canvas uma vez para reutilizá-lo
+    const canvasElement = document.getElementById('blackhole-canvas');
+
+    /*
+      Passo 4: Ajustar o JavaScript
+      Esta função inicializa o efeito no nosso canvas.
+      A biblioteca `black-hole.js` vai desenhar diretamente no elemento
+      com o ID 'blackhole-canvas'.
+    */
+    function initializeBlackHole() {
+      // Ajusta os atributos de resolução do canvas para corresponderem ao seu tamanho em CSS.
+      // Isto garante que a animação não fique desfocada ou pixelizada.
+      canvasElement.width = canvasElement.clientWidth;
+      canvasElement.height = canvasElement.clientHeight;
+      
+      BlackHole.blackHoleifyImage('blackhole-canvas', './images/milkyway.jpg');
+    }
+
+    /*
+      Função "debounce" para otimizar o redimensionamento.
+      Evita que a função de inicialização seja chamada dezenas de vezes enquanto
+      o utilizador arrasta a janela, melhorando a performance.
+    */
+    function debounce(func, wait) {
+      let timeout;
+      return function(...args) {
+        const context = this;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), wait);
+      };
+    }
+
+    // Chama a inicialização quando a página carrega completamente.
+    // Usar 'load' em vez de apenas chamar a função garante que a imagem e os estilos já foram carregados.
+    window.addEventListener('load', initializeBlackHole);
+
+    // Adiciona um listener para o evento de redimensionamento da janela.
+    // Quando a janela muda de tamanho, a animação é recriada para se ajustar.
+    window.addEventListener('resize', debounce(initializeBlackHole, 250));
+  </script>
+</body>
+</html>
